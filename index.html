@@ -1388,17 +1388,17 @@
     /* 2-COLUMN SOLAR & FEATURED STAGE LAYOUT */
     .solar-layout-grid {
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 40px;
+      grid-template-columns: 1fr 390px;
+      gap: 95px;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 40px;
       position: relative;
     }
 
     .solar-system-wrapper {
       position: relative;
       width: 100%;
-      height: 600px;
+      height: 560px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1475,13 +1475,13 @@
       pointer-events: none;
     }
     .inner-track-line {
-      width: 270px;
-      height: 270px;
+      width: 240px;
+      height: 240px;
       z-index: 10;
     }
     .outer-track-line {
-      width: 520px;
-      height: 520px;
+      width: 450px;
+      height: 450px;
       border-color: rgba(0, 82, 255, 0.16);
       z-index: 5;
     }
@@ -3439,8 +3439,8 @@
       solarWrapper.addEventListener('mouseenter', function() { isPaused = true; });
       solarWrapper.addEventListener('mouseleave', function() { isPaused = false; });
 
-      const R_INNER = 135; // Radius for 270px inner orbit line
-      const R_OUTER = 260; // Radius for 520px outer orbit line
+      const R_INNER = 120; // Radius for 240px inner orbit line
+      const R_OUTER = 225; // Radius for 450px outer orbit line
 
       function updateOrbit() {
         if (!isPaused) {
