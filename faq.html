@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frequently Asked Questions (FAQ) | IGP by Sparklehood</title>
+  <meta name="description" content="Find answers to all your EV charging station installation questions: DISCOM approvals, earthing safety, charger speeds, costs, and maintenance SLAs.">
+  <link rel="icon" type="image/svg+xml" href="igp logo.svg">
+  <link rel="icon" type="image/png" href="igp logo.png">
+  <link rel="shortcut icon" type="image/png" href="igp logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0F172A;
+      --bg-light: #F8FAFC;
+      --white: #FFFFFF;
+      --blue: #0052FF;
+      --blue-600: #0044D9;
+      --blue-glow: rgba(0, 82, 255, 0.22);
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border-light: rgba(226, 232, 240, 0.8);
+      --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.07);
+      --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.10);
+      --shadow-lg: 0 16px 48px rgba(15, 23, 42, 0.14);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    *, body, a, button, input, select, textarea, .btn, .nav-link {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34' fill='none'%3E%3Ccircle cx='17' cy='17' r='15' fill='rgba(245, 248, 255, 0.92)' stroke='%2364748B' stroke-width='1.3'/%3E%3Cpath d='M18.5 7.5L9.5 18H15.5L14.5 26.5L23.5 16H17.5L18.5 7.5Z' fill='%230F172A' stroke='%230F172A' stroke-width='0.5' stroke-linejoin='round'/%3E%3C/svg%3E") 17 17, auto !important;
+    }
+    .container { width: 100%; max-width: 1264px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAVBAR */
+    .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-light); }
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 32px; }
+    .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand-img { height: 38px; width: auto; object-fit: contain; }
+    .brand-name-wrap { display: flex; flex-direction: column; }
+    .brand-name { font-size: 1.15rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.03em; line-height: 1.1; }
+    .brand-sub { font-size: 0.68rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-link { padding: 8px 14px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-decoration: none; transition: var(--transition); }
+    .nav-link:hover, .nav-link.active { color: var(--blue); background: rgba(0,82,255,0.06); }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--blue); color: var(--white); border: none; border-radius: 999px; font-size: 0.875rem; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: var(--shadow-blue); }
+
+    /* PAGE HERO */
+    .page-hero { padding: 150px 0 60px 0; background: linear-gradient(180deg, #F8FAFC 0%, #EDF5FF 60%, #F8FAFC 100%); text-align: center; }
+    .page-badge { display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); background: rgba(0,82,255,0.08); padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; }
+    .page-title { font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text-dark); margin-bottom: 16px; }
+    .page-title span { color: var(--blue); }
+    .page-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 36px; line-height: 1.7; }
+
+    /* SEARCH BAR */
+    .faq-search-box { max-width: 600px; margin: 0 auto 40px; position: relative; }
+    .faq-search-box input { width: 100%; padding: 16px 24px; border-radius: 999px; border: 1.5px solid var(--border-light); font-size: 1rem; outline: none; box-shadow: var(--shadow-md); transition: var(--transition); }
+    .faq-search-box input:focus { border-color: var(--blue); box-shadow: 0 0 20px rgba(0,82,255,0.15); }
+
+    /* FAQ ACCORDION LIST */
+    .faq-section { padding: 40px 0 120px 0; }
+    .faq-list { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    .faq-item { background: var(--white); border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: var(--transition); }
+    .faq-item.active { border-color: rgba(0,82,255,0.3); box-shadow: var(--shadow-md); }
+    .faq-question { width: 100%; padding: 22px 28px; background: none; border: none; text-align: left; font-size: 1.1rem; font-weight: 800; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .faq-question .arrow { width: 24px; height: 24px; border-radius: 50%; background: rgba(0,82,255,0.08); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: transform 0.3s ease; }
+    .faq-item.active .faq-question .arrow { transform: rotate(180deg); background: var(--blue); color: var(--white); }
+    .faq-answer { padding: 0 28px 24px 28px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; display: none; }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* FOOTER */
+    footer { background: #0B1120; color: #94A3B8; padding: 60px 0 30px; font-size: 0.88rem; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="igp logo.svg" alt="IGP Logo" class="nav-brand-img">
+        <div class="brand-name-wrap">
+          <span class="brand-name">IGP BY SPARKLEHOOD</span>
+          <span class="brand-sub">EV INFRASTRUCTURE PARTNER</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="index.html#why-us" class="nav-link">Why Choose Us</a></li>
+        <li><a href="process.html" class="nav-link">Process</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="index.html#map" class="nav-link">Pan India</a></li>
+        <li><a href="calculator.html" class="nav-link">Calculator</a></li>
+        <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+        <li><a href="career.html" class="nav-link">Careers</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn-nav">Book Consultation &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-badge">KNOWLEDGE CENTER</span>
+      <h1 class="page-title">Frequently Asked <span>Questions</span></h1>
+      <p class="page-subtitle">Get detailed answers on DISCOM clearances, CEA safety protocols, tariff meters, charger compatibility, and 72-hour maintenance SLAs.</p>
+
+      <div class="faq-search-box">
+        <input type="text" id="faqSearchInput" placeholder="Search any question (e.g. DISCOM, earthing, cost, fast charger)..." onkeyup="filterFaqs()">
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-list" id="faqList">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What DISCOM approvals are required for installing EV chargers in India?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            Installing EV chargers requires a formal Single Line Diagram (SLD) clearance, DISCOM load sanctioning, and dedicated EV tariff meter connection. IGP handles 100% of the DISCOM documentation, application filing, and site inspection across all 28 states.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the difference between AC Type-2 and DC Fast Chargers?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            AC Type-2 chargers (7.4kW to 22kW) supply alternating current directly to the vehicle's onboard charger, ideal for overnight residential or office park charging (4-8 hours). DC Fast Chargers (60kW to 120kW+) bypass the onboard charger, delivering direct current directly to the battery pack for ultra-fast charging (20-40 minutes).
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does a complete turnkey EV installation take from start to finish?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            Our standard turnkey execution takes between 5 to 14 days depending on DISCOM load sanction approval timelines. Civil trenching, earthing pit installation, and charger mounting are completed within 72 hours of site clearance.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What safety protection measures does IGP implement?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            Every IGP installation includes IS-compliant dual chemical earthing pits, automated Residual Current Circuit Breakers (RCCB), Class B+C Surge Protection Devices (SPD), thermal imaging junction inspections, and IP65 weatherproof distribution enclosures.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can we monetize charging stations in our commercial complex or apartment?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            Yes! We integrate OCPP 1.6J compliant Central Management Software (CMS) with automated UPI, RFID card, and mobile app billing. Property owners can set custom charging tariffs per kWh or hour and collect revenue seamlessly.
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is IGP's maintenance SLA commitment after commissioning?
+            <span class="arrow">&darr;</span>
+          </button>
+          <div class="faq-answer">
+            IGP provides a 72-hour guaranteed on-ground technician resolution SLA across Tier-1 & Tier-2 cities in India, backed by 24/7 cloud telemetry health monitoring.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 IGP by Sparklehood. All Rights Reserved.</p>
+        <p>Pan-India DISCOM &amp; CEA Compliant EV Infrastructure Partner</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      item.classList.toggle('active');
+    }
+
+    function filterFaqs() {
+      const query = document.getElementById('faqSearchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

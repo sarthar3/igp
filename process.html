@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our 6-Step Installation Process | IGP by Sparklehood</title>
+  <meta name="description" content="Explore IGP's turnkey 6-step EV charging station installation workflow: Site Survey, DISCOM SLD Approval, Cabling, Commissioning, and SLA Operations.">
+  <link rel="icon" type="image/svg+xml" href="igp logo.svg">
+  <link rel="icon" type="image/png" href="igp logo.png">
+  <link rel="shortcut icon" type="image/png" href="igp logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0F172A;
+      --bg-light: #F8FAFC;
+      --white: #FFFFFF;
+      --blue: #0052FF;
+      --blue-600: #0044D9;
+      --blue-glow: rgba(0, 82, 255, 0.22);
+      --green: #0284C7;
+      --green-bright: #38BDF8;
+      --text-dark: #0F172A;
+      --text-muted: #64748B;
+      --border-light: rgba(226, 232, 240, 0.8);
+      --shadow-sm: 0 1px 4px rgba(15, 23, 42, 0.07);
+      --shadow-md: 0 4px 20px rgba(15, 23, 42, 0.10);
+      --shadow-blue: 0 8px 24px rgba(0, 82, 255, 0.28);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    *, body, a, button, input, select, textarea, .btn, .nav-link {
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34' fill='none'%3E%3Ccircle cx='17' cy='17' r='15' fill='rgba(245, 248, 255, 0.92)' stroke='%2364748B' stroke-width='1.3'/%3E%3Cpath d='M18.5 7.5L9.5 18H15.5L14.5 26.5L23.5 16H17.5L18.5 7.5Z' fill='%230F172A' stroke='%230F172A' stroke-width='0.5' stroke-linejoin='round'/%3E%3C/svg%3E") 17 17, auto !important;
+    }
+    .container { width: 100%; max-width: 1264px; margin: 0 auto; padding: 0 24px; }
+    
+    /* NAVBAR */
+    .navbar {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 1px 12px rgba(15,23,42,0.04);
+    }
+    .navbar-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 32px; }
+    .brand-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand-img { height: 38px; width: auto; object-fit: contain; }
+    .brand-name-wrap { display: flex; flex-direction: column; }
+    .brand-name { font-size: 1.15rem; font-weight: 800; color: var(--text-dark); letter-spacing: -0.03em; line-height: 1.1; }
+    .brand-sub { font-size: 0.68rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-link { padding: 8px 14px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; color: var(--text-dark); text-decoration: none; transition: var(--transition); }
+    .nav-link:hover, .nav-link.active { color: var(--blue); background: rgba(0,82,255,0.06); }
+    .btn-nav { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; background: var(--blue); color: var(--white); border: none; border-radius: 999px; font-size: 0.875rem; font-weight: 700; cursor: pointer; text-decoration: none; box-shadow: var(--shadow-blue); transition: var(--transition); }
+    .btn-nav:hover { background: var(--blue-600); transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 150px 0 70px 0;
+      background: linear-gradient(180deg, #F8FAFC 0%, #EDF5FF 60%, #F8FAFC 100%);
+      text-align: center;
+      position: relative;
+    }
+    .page-badge { display: inline-block; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--blue); background: rgba(0,82,255,0.08); padding: 6px 14px; border-radius: 999px; margin-bottom: 16px; }
+    .page-title { font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; color: var(--text-dark); margin-bottom: 16px; }
+    .page-title span { color: var(--blue); }
+    .page-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 680px; margin: 0 auto 36px; line-height: 1.7; }
+
+    /* PROCESS TIMELINE SECTION */
+    .process-section { padding: 80px 0 120px 0; }
+    .timeline-container { position: relative; max-width: 960px; margin: 0 auto; }
+    .timeline-container::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 50%; width: 4px;
+      background: linear-gradient(180deg, var(--blue) 0%, #38BDF8 100%);
+      transform: translateX(-50%); border-radius: 999px;
+    }
+    .process-card-row { display: flex; align-items: center; margin-bottom: 70px; position: relative; }
+    .process-card-row:nth-child(odd) { flex-direction: row-reverse; }
+    .process-card-content { width: 45%; background: var(--white); border: 1px solid var(--border-light); border-radius: 20px; padding: 32px; box-shadow: var(--shadow-md); transition: var(--transition); }
+    .process-card-content:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: rgba(0,82,255,0.3); }
+    .step-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 0.75rem; font-weight: 800; color: var(--blue); background: rgba(0,82,255,0.08); padding: 4px 12px; border-radius: 999px; margin-bottom: 12px; }
+    .step-title { font-size: 1.35rem; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
+    .step-desc { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+    .step-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .step-list li { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-dark); }
+    .check-icon { width: 18px; height: 18px; border-radius: 50%; background: rgba(0,82,255,0.1); color: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 800; flex-shrink: 0; }
+    
+    .timeline-node {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      width: 54px; height: 54px; border-radius: 50%;
+      background: var(--white); border: 4px solid var(--blue);
+      box-shadow: 0 0 20px rgba(0,82,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 800; color: var(--blue); z-index: 10;
+    }
+
+    /* CTA STRIP */
+    .cta-banner { background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%); color: var(--white); padding: 70px 0; border-radius: 24px; text-align: center; margin-bottom: 80px; box-shadow: var(--shadow-lg); }
+    .cta-banner h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+    .cta-banner p { font-size: 1rem; color: #94A3B8; max-width: 580px; margin: 0 auto 28px; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: var(--white); color: var(--text-dark); border-radius: 999px; font-size: 0.95rem; font-weight: 800; text-decoration: none; transition: var(--transition); }
+    .btn-white:hover { background: #F1F5F9; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: #0B1120; color: #94A3B8; padding: 60px 0 30px; font-size: 0.88rem; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+
+    @media (max-width: 860px) {
+      .timeline-container::before { left: 24px; }
+      .process-card-row, .process-card-row:nth-child(odd) { flex-direction: column; align-items: flex-start; padding-left: 64px; }
+      .process-card-content { width: 100%; }
+      .timeline-node { left: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="igp logo.svg" alt="IGP Logo" class="nav-brand-img">
+        <div class="brand-name-wrap">
+          <span class="brand-name">IGP BY SPARKLEHOOD</span>
+          <span class="brand-sub">EV INFRASTRUCTURE PARTNER</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="index.html#why-us" class="nav-link">Why Choose Us</a></li>
+        <li><a href="process.html" class="nav-link active">Process</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="index.html#map" class="nav-link">Pan India</a></li>
+        <li><a href="calculator.html" class="nav-link">Calculator</a></li>
+        <li><a href="faq.html" class="nav-link">FAQ</a></li>
+        <li><a href="career.html" class="nav-link">Careers</a></li>
+      </ul>
+      <a href="index.html#contact" class="btn-nav">Book Consultation &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="page-badge">WORKFLOW EXCELLENCE</span>
+      <h1 class="page-title">Our Turnkey <span>6-Step Process</span></h1>
+      <p class="page-subtitle">From initial DISCOM load feasibility and SLD single-line diagrams to high-voltage field execution and 24/7 CMS uptime monitoring.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS TIMELINE -->
+  <section class="process-section">
+    <div class="container">
+      <div class="timeline-container">
+
+        <!-- STEP 1 -->
+        <div class="process-card-row">
+          <div class="timeline-node">1</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 01</span>
+            <h3 class="step-title">Site Survey &amp; Load Feasibility</h3>
+            <p class="step-desc">Certified electrical engineers conduct comprehensive site audits, measuring transformer headroom, cable distance, and earthing resistance.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> Transformer capacity &amp; peak load analysis</li>
+              <li><span class="check-icon">&check;</span> Earthing pit location &amp; earth resistance test</li>
+              <li><span class="check-icon">&check;</span> Digital site layout &amp; cable route mapping</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="process-card-row">
+          <div class="timeline-node">2</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 02</span>
+            <h3 class="step-title">DISCOM Approval &amp; SLD Clearance</h3>
+            <p class="step-desc">Preparation and submission of official CEA-compliant Single Line Diagrams (SLD) and DISCOM sanction load applications.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> CEA &amp; State DISCOM load sanctioning</li>
+              <li><span class="check-icon">&check;</span> Professional electrical SLD engineering</li>
+              <li><span class="check-icon">&check;</span> Dedicated EV tariff meter processing</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="process-card-row">
+          <div class="timeline-node">3</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 03</span>
+            <h3 class="step-title">Civil Works &amp; Cabling Trenching</h3>
+            <p class="step-desc">Heavy-duty civil foundation construction, IS-compliant dual earthing pits, and armored XLPE copper/aluminum cable laying.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> Dual chemical earthing pit installation</li>
+              <li><span class="check-icon">&check;</span> Armored XLPE high-voltage trenching</li>
+              <li><span class="check-icon">&check;</span> Weatherproof IP65 distribution panel setup</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="process-card-row">
+          <div class="timeline-node">4</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 04</span>
+            <h3 class="step-title">Charger Mounting &amp; Protection Sync</h3>
+            <p class="step-desc">Precision mounting of AC Type-2 and DC Fast Chargers with dedicated MCB, RCCB, and surge protection device (SPD) sync.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> Dual-gun 60kW-120kW DC fast charger setup</li>
+              <li><span class="check-icon">&check;</span> Class B+C Surge Protection Device (SPD)</li>
+              <li><span class="check-icon">&check;</span> Automated RCCB trip protection</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="process-card-row">
+          <div class="timeline-node">5</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 05</span>
+            <h3 class="step-title">Load Testing &amp; Commissioning</h3>
+            <p class="step-desc">Full thermal imaging inspection, high-voltage load testing, and final DISCOM meter seal commissioning.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> FLIR thermal camera junction check</li>
+              <li><span class="check-icon">&check;</span> Simulated full-capacity EV charge cycle</li>
+              <li><span class="check-icon">&check;</span> DISCOM inspector sign-off certificate</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="process-card-row">
+          <div class="timeline-node">6</div>
+          <div class="process-card-content">
+            <span class="step-badge">STAGE 06</span>
+            <h3 class="step-title">OCPP CMS &amp; 24/7 SLA Operations</h3>
+            <p class="step-desc">Connecting chargers to smart OCPP 1.6J Central Management Software (CMS) with guaranteed 72-hour field maintenance SLA.</p>
+            <ul class="step-list">
+              <li><span class="check-icon">&check;</span> Automated billing, RFID &amp; app integration</li>
+              <li><span class="check-icon">&check;</span> 99.9% uptime cloud health telemetry</li>
+              <li><span class="check-icon">&check;</span> 72-hour guaranteed on-ground technician SLA</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA BANNER -->
+      <div class="cta-banner">
+        <h2>Ready to Initiate Your Site Feasibility Survey?</h2>
+        <p>Our certified high-voltage electrical engineers evaluate your property load and provide a complete DISCOM clearance plan within 48 hours.</p>
+        <a href="index.html#contact" class="btn-white">Book Free Site Survey &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; 2026 IGP by Sparklehood. All Rights Reserved.</p>
+        <p>Pan-India DISCOM &amp; CEA Compliant EV Infrastructure Partner</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
