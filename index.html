@@ -1375,6 +1375,377 @@
       .terminal-grid { grid-template-columns: 1fr; }
       .gauge-svg-wrap { width: 140px; height: 140px; }
     }
+
+    /* =====================================================================
+       SOLAR SYSTEM ECOSYSTEM & JOURNEY ORBIT
+       ===================================================================== */
+    .solar-system-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, #F8FAFC 0%, #EDF5FF 50%, #F8FAFC 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .solar-system-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      height: 760px;
+      margin: 40px auto 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .solar-ambient-glow {
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(circle, rgba(0, 82, 255, 0.14) 0%, rgba(56, 189, 248, 0.05) 50%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* CENTRAL SUN LOGO */
+    .sun-center {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      box-shadow: 0 0 40px rgba(0, 82, 255, 0.35), 0 0 80px rgba(0, 82, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      border: 3px solid rgba(0, 82, 255, 0.25);
+      transition: transform 0.4s ease;
+    }
+    .sun-center:hover {
+      transform: scale(1.08);
+    }
+
+    .sun-pulse-ring {
+      position: absolute;
+      inset: -12px;
+      border: 2px solid rgba(0, 82, 255, 0.25);
+      border-radius: 50%;
+      animation: sunPulse 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    }
+    .sun-pulse-ring.delay-1 {
+      animation-delay: 1.5s;
+    }
+
+    @keyframes sunPulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.4); opacity: 0; }
+    }
+
+    .sun-logo-box {
+      width: 85px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sun-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .sun-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--blue);
+      margin-top: 2px;
+    }
+
+    /* ORBIT PLANES & TRACKS */
+    .orbit-plane {
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .inner-orbit-plane {
+      width: 440px;
+      height: 440px;
+      z-index: 20;
+    }
+
+    .outer-orbit-plane {
+      width: 780px;
+      height: 780px;
+      z-index: 10;
+    }
+
+    .orbit-track {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(0, 82, 255, 0.22);
+      pointer-events: none;
+    }
+    .outer-track {
+      border-color: rgba(0, 82, 255, 0.16);
+    }
+
+    .orbit-rotator {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+    }
+
+    /* CONTINUOUS ORBIT ANIMATIONS */
+    .inner-rotator {
+      animation: orbitSpinInner 48s linear infinite;
+    }
+    .outer-rotator {
+      animation: orbitSpinOuter 72s linear infinite reverse;
+    }
+
+    /* PAUSE ON HOVER */
+    .solar-system-wrapper:hover .orbit-rotator {
+      animation-play-state: paused !important;
+    }
+
+    @keyframes orbitSpinInner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes orbitSpinOuter {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ORBIT NODES */
+    .orbit-node {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -28px;
+      margin-left: -28px;
+    }
+
+    /* Inner 8 Nodes Math */
+    .node-in-1 { transform: rotate(0deg) translate(220px) rotate(0deg); }
+    .node-in-2 { transform: rotate(45deg) translate(220px) rotate(-45deg); }
+    .node-in-3 { transform: rotate(90deg) translate(220px) rotate(-90deg); }
+    .node-in-4 { transform: rotate(135deg) translate(220px) rotate(-135deg); }
+    .node-in-5 { transform: rotate(180deg) translate(220px) rotate(-180deg); }
+    .node-in-6 { transform: rotate(225deg) translate(220px) rotate(-225deg); }
+    .node-in-7 { transform: rotate(270deg) translate(220px) rotate(-270deg); }
+    .node-in-8 { transform: rotate(315deg) translate(220px) rotate(-315deg); }
+
+    /* Counter-rotate inner cards to stay upright */
+    .inner-node .planet-card {
+      animation: counterSpinInner 48s linear infinite;
+    }
+    @keyframes counterSpinInner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-360deg); }
+    }
+
+    /* Outer 8 Nodes Math */
+    .node-out-1 { transform: rotate(22.5deg) translate(390px) rotate(-22.5deg); }
+    .node-out-2 { transform: rotate(67.5deg) translate(390px) rotate(-67.5deg); }
+    .node-out-3 { transform: rotate(112.5deg) translate(390px) rotate(-112.5deg); }
+    .node-out-4 { transform: rotate(157.5deg) translate(390px) rotate(-157.5deg); }
+    .node-out-5 { transform: rotate(202.5deg) translate(390px) rotate(-202.5deg); }
+    .node-out-6 { transform: rotate(247.5deg) translate(390px) rotate(-247.5deg); }
+    .node-out-7 { transform: rotate(292.5deg) translate(390px) rotate(-292.5deg); }
+    .node-out-8 { transform: rotate(337.5deg) translate(390px) rotate(-337.5deg); }
+
+    /* Counter-rotate outer cards */
+    .outer-node .planet-card {
+      animation: counterSpinOuter 72s linear infinite;
+    }
+    @keyframes counterSpinOuter {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .solar-system-wrapper:hover .planet-card {
+      animation-play-state: paused !important;
+    }
+
+    /* PLANET CARDS */
+    .planet-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    }
+
+    /* LOGO PLANETS (INNER ORBIT) */
+    .logo-planet {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid rgba(0, 82, 255, 0.18);
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
+      padding: 10px;
+    }
+    .logo-planet img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .logo-planet:hover {
+      transform: scale(1.35) !important;
+      z-index: 300;
+      border-color: var(--blue);
+      box-shadow: 0 8px 28px rgba(0, 82, 255, 0.35);
+    }
+
+    .planet-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      padding: 6px 12px;
+      border-radius: 8px;
+      white-space: nowrap;
+      font-size: 0.75rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      z-index: 400;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .planet-tooltip .tooltip-title { font-weight: 700; }
+    .planet-tooltip .tooltip-sub { font-size: 0.65rem; color: #94A3B8; }
+
+    .logo-planet:hover .planet-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* IMAGE PLANETS (OUTER ORBIT) */
+    .image-planet {
+      width: 115px;
+      height: 84px;
+      border-radius: 12px;
+      background: #FFFFFF;
+      border: 2.5px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+      overflow: visible;
+    }
+
+    .img-thumb-wrap {
+      width: 100%;
+      height: 100%;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .image-planet img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .image-planet:hover {
+      transform: scale(1.45) !important;
+      z-index: 1000;
+      border-color: var(--blue);
+      box-shadow: 0 16px 40px rgba(0, 82, 255, 0.38);
+    }
+
+    /* IMAGE DETAILS POPUP ON HOVER */
+    .card-details-popup {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      width: 250px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(0, 82, 255, 0.2);
+      border-radius: 14px;
+      padding: 12px 14px;
+      box-shadow: 0 16px 44px rgba(15, 23, 42, 0.22);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      z-index: 1200;
+      text-align: left;
+    }
+
+    .node-out-3 .card-details-popup,
+    .node-out-4 .card-details-popup,
+    .node-out-5 .card-details-popup,
+    .node-out-6 .card-details-popup {
+      top: auto;
+      bottom: calc(100% + 10px);
+    }
+
+    .image-planet:hover .card-details-popup {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .popup-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--blue);
+      background: rgba(0, 82, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .popup-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+      line-height: 1.25;
+    }
+
+    .popup-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* RESPONSIVE SCALING FOR MOBILE / SMALL SCREENS */
+    @media (max-width: 860px) {
+      .solar-system-wrapper {
+        transform: scale(0.72);
+        margin-top: -60px;
+        margin-bottom: -60px;
+      }
+    }
+    @media (max-width: 540px) {
+      .solar-system-wrapper {
+        transform: scale(0.52);
+        margin-top: -120px;
+        margin-bottom: -120px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1782,22 +2153,244 @@
   </section>
 
 
-  <!-- EV BRAND COMPATIBILITY MARQUEE -->
-  <section class="ev-brands-section">
-    <div class="container">
-      <span class="badge-pill badge-blue">Universal Compatibility</span>
-      <h3 style="font-size:1.3rem;margin-top:8px;">Compatible with All Major Electric Vehicles in India</h3>
-      <div class="ev-brands-grid">
-        <div class="ev-brand-chip"><img src="evindia/1.png" alt="EV Brand 1"></div>
-        <div class="ev-brand-chip"><img src="evindia/2.png" alt="EV Brand 2"></div>
-        <div class="ev-brand-chip"><img src="evindia/3.png" alt="EV Brand 3"></div>
-        <div class="ev-brand-chip"><img src="evindia/4.png" alt="EV Brand 4"></div>
-        <div class="ev-brand-chip"><img src="evindia/5.png" alt="EV Brand 5"></div>
-        <div class="ev-brand-chip"><img src="evindia/6.png" alt="EV Brand 6"></div>
-        <div class="ev-brand-chip"><img src="evindia/7.png" alt="EV Brand 7"></div>
-        <div class="ev-brand-chip"><img src="evindia/8.png" alt="EV Brand 8"></div>
-        <div class="ev-brand-chip"><img src="evindia/9.png" alt="EV Brand 9"></div>
-        <div class="ev-brand-chip"><img src="evindia/10.png" alt="EV Brand 10"></div>
+  <!-- SOLAR SYSTEM ORBIT: EV BRANDS & JOURNEY ACHIEVEMENTS -->
+  <section class="solar-system-section" id="ecosystem">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2>Explore Our Journey &amp; Achievements</h2>
+        <p>Powering India's electric transition — exploring EV brand compatibility, turnkey field installations, and industry achievements in an interactive solar ecosystem.</p>
+      </div>
+
+      <!-- SOLAR SYSTEM MAIN CONTAINER -->
+      <div class="solar-system-wrapper">
+        <div class="solar-ambient-glow"></div>
+
+        <!-- CENTRAL SUN (IGP LOGO) -->
+        <div class="sun-center">
+          <div class="sun-pulse-ring"></div>
+          <div class="sun-pulse-ring delay-1"></div>
+          <div class="sun-logo-box">
+            <img src="igp logo.svg" alt="IGP Logo" class="sun-logo">
+          </div>
+          <div class="sun-label">IGP HUB</div>
+        </div>
+
+        <!-- INNER ORBITAL PLANE: CAR & EV COMPANY LOGOS -->
+        <div class="orbit-plane inner-orbit-plane">
+          <div class="orbit-track inner-track"></div>
+          <div class="orbit-rotator inner-rotator">
+            
+            <!-- Hero MotoCorp -->
+            <div class="orbit-node inner-node node-in-1">
+              <div class="planet-card logo-planet">
+                <img src="logo/hero.png" alt="Hero MotoCorp">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Hero MotoCorp</span>
+                  <span class="tooltip-sub">Charging Partner</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honda EV -->
+            <div class="orbit-node inner-node node-in-2">
+              <div class="planet-card logo-planet">
+                <img src="logo/honda.png" alt="Honda EV">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Honda EV</span>
+                  <span class="tooltip-sub">Compatible OEM</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honda e:Swap -->
+            <div class="orbit-node inner-node node-in-3">
+              <div class="planet-card logo-planet">
+                <img src="logo/hondaeswap.png" alt="Honda e:Swap">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Honda e:Swap</span>
+                  <span class="tooltip-sub">Battery Swap Infra</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Indofast Energy -->
+            <div class="orbit-node inner-node node-in-4">
+              <div class="planet-card logo-planet">
+                <img src="logo/indofast.png" alt="Indofast Energy">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Indofast Energy</span>
+                  <span class="tooltip-sub">Grid Partner</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Motorcop -->
+            <div class="orbit-node inner-node node-in-5">
+              <div class="planet-card logo-planet">
+                <img src="logo/motorcop.png" alt="Motorcop">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Motorcop</span>
+                  <span class="tooltip-sub">Fleet Integration</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Statiq -->
+            <div class="orbit-node inner-node node-in-6">
+              <div class="planet-card logo-planet">
+                <img src="logo/statiq.png" alt="Statiq">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Statiq Network</span>
+                  <span class="tooltip-sub">CPO Partner</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Uno Minda -->
+            <div class="orbit-node inner-node node-in-7">
+              <div class="planet-card logo-planet">
+                <img src="logo/uno.png" alt="Uno Minda">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Uno Minda</span>
+                  <span class="tooltip-sub">Component Infra</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vida -->
+            <div class="orbit-node inner-node node-in-8">
+              <div class="planet-card logo-planet">
+                <img src="logo/vida.png" alt="Vida World">
+                <div class="planet-tooltip">
+                  <span class="tooltip-title">Vida World</span>
+                  <span class="tooltip-sub">EV 2W Charging</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- OUTER ORBITAL PLANE: FIELD INSTALLATION & MILESTONE IMAGES -->
+        <div class="orbit-plane outer-orbit-plane">
+          <div class="orbit-track outer-track"></div>
+          <div class="orbit-rotator outer-rotator">
+            
+            <!-- EV Excellence Award -->
+            <div class="orbit-node outer-node node-out-1">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/award.png" alt="EV Excellence Award">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Recognition</span>
+                  <h4 class="popup-title">EV Excellence Award</h4>
+                  <p class="popup-desc">Recognized as India's premier high-reliability turnkey EV infrastructure installation partner.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dainik Bhaskar Feature -->
+            <div class="orbit-node outer-node node-out-2">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/bhaskar.png" alt="Dainik Bhaskar Feature">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Media Coverage</span>
+                  <h4 class="popup-title">Dainik Bhaskar Feature</h4>
+                  <p class="popup-desc">Highlighted for accelerating turnkey EV charger accessibility across Tier-1 &amp; Tier-2 cities in India.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Fast DC Charger Installation -->
+            <div class="orbit-node outer-node node-out-3">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="evindia/1.png" alt="Fast DC Installation">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Field Project</span>
+                  <h4 class="popup-title">Turnkey DC Fast Charging</h4>
+                  <p class="popup-desc">Dual-gun 60kW-120kW DC fast charging station setup with CEA DISCOM grid compliance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- National EV Summit -->
+            <div class="orbit-node outer-node node-out-4">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/event.jpg" alt="National EV Summit">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Industry Leadership</span>
+                  <h4 class="popup-title">National EV Summit</h4>
+                  <p class="popup-desc">Keynote presentations on transformer load balancing and 99.9% uptime SLA compliance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- State EV Policy -->
+            <div class="orbit-node outer-node node-out-5">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/tamil.jpg" alt="State EV Policy">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">DISCOM Partnership</span>
+                  <h4 class="popup-title">State EV Policy Initiative</h4>
+                  <p class="popup-desc">Partnering with regional DISCOMs to streamline SLD single-line approvals and grid connectivity.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certified Field Technicians -->
+            <div class="orbit-node outer-node node-out-6">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/technician.jpg" alt="Certified Field Technicians">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Field Operations</span>
+                  <h4 class="popup-title">Certified Field Technicians</h4>
+                  <p class="popup-desc">On-ground certified high-voltage technicians ensuring 72-hour commissioning standards.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety & Compliance Training -->
+            <div class="orbit-node outer-node node-out-7">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="img/training.jpg" alt="Safety Training">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Safety &amp; Compliance</span>
+                  <h4 class="popup-title">Safety Protocol Training</h4>
+                  <p class="popup-desc">Rigorous IS-compliant earthing, thermal imaging, and RCCB protection protocol training.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Commercial & Fleet Infrastructure -->
+            <div class="orbit-node outer-node node-out-8">
+              <div class="planet-card image-planet">
+                <div class="img-thumb-wrap">
+                  <img src="evindia/6.png" alt="Fleet Hub">
+                </div>
+                <div class="card-details-popup">
+                  <span class="popup-tag">Fleet Hub</span>
+                  <h4 class="popup-title">Fleet &amp; Hub Chargers</h4>
+                  <p class="popup-desc">Multi-bay heavy-duty charging infrastructure tailored for corporate &amp; e-logistics fleets.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1849,67 +2442,6 @@
           <div class="team-info">
             <div class="team-name">Chetan</div>
             <div class="team-role">Electrical Engineer - EV</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MEDIA COVERAGE & INDUSTRY IMPACT -->
-  <section class="media-section" id="media">
-    <div class="container">
-      <div class="section-header">
-        <span class="badge-pill badge-blue">Media &amp; Recognition</span>
-        <h2>Featured in National News &amp; EV Summits</h2>
-        <p>Demonstrating engineering excellence, Discom safety compliance, and nationwide community impact.</p>
-      </div>
-
-      <div class="media-grid">
-        <div class="media-card">
-          <img src="img/bhaskar.png" alt="Dainik Bhaskar Feature">
-          <div class="media-body">
-            <div class="media-title">Dainik Bhaskar Feature</div>
-            <p class="media-desc">Highlighted for accelerating turnkey EV charger accessibility across Tier-1 &amp; Tier-2 cities in India.</p>
-          </div>
-        </div>
-
-        <div class="media-card">
-          <img src="img/award.png" alt="EV Excellence Award">
-          <div class="media-body">
-            <div class="media-title">EV Excellence Award</div>
-            <p class="media-desc">Recognized as India's premier high-reliability turnkey EV infrastructure installation partner.</p>
-          </div>
-        </div>
-
-        <div class="media-card">
-          <img src="img/event.jpg" alt="National EV Summit">
-          <div class="media-body">
-            <div class="media-title">National EV Summit</div>
-            <p class="media-desc">Keynote presentations on transformer load balancing and 99.9% uptime SLA compliance.</p>
-          </div>
-        </div>
-
-        <div class="media-card">
-          <img src="img/tamil.jpg" alt="State EV Policy Initiative">
-          <div class="media-body">
-            <div class="media-title">State EV Policy Initiative</div>
-            <p class="media-desc">Partnering with regional DISCOMs to streamline SLD single-line approvals and grid connectivity.</p>
-          </div>
-        </div>
-
-        <div class="media-card">
-          <img src="img/technician.jpg" alt="Certified Field Technicians">
-          <div class="media-body">
-            <div class="media-title">Certified Field Technicians</div>
-            <p class="media-desc">On-ground certified high-voltage technicians ensuring 72-hour commissioning standards.</p>
-          </div>
-        </div>
-
-        <div class="media-card">
-          <img src="img/training.jpg" alt="Safety &amp; Compliance Training">
-          <div class="media-body">
-            <div class="media-title">Safety &amp; Compliance Training</div>
-            <p class="media-desc">Rigorous IS-compliant earthing, thermal imaging, and RCCB protection protocol training.</p>
           </div>
         </div>
       </div>
