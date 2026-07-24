@@ -1,0 +1,29 @@
+<svg class="india-svg" viewBox="0 0 500 550" fill="none">
+            <!-- Simplified Stylized Outline of India -->
+            <path d="M180,60 L230,40 L280,60 L310,100 L350,140 L340,190 L390,220 L380,260 L320,280 L300,340 L260,420 L240,490 L220,420 L180,350 L140,300 L110,250 L130,200 L120,150 L150,100 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(0,212,255,0.4)" stroke-width="2"/>
+            
+            <!-- Hotspots -->
+            <g class="map-hotspot" onclick="selectCity('Delhi NCR', '450+ Stations', 'Hub 1')">
+              <circle cx="210" cy="130" r="10" fill="rgba(0, 212, 255, 0.3)" class="hotspot-pulse"/>
+              <circle cx="210" cy="130" r="5" fill="#00D4FF"/>
+              <text x="220" y="135" fill="#FFF" font-size="12" font-weight="700">Delhi NCR</text>
+            </g>
+
+            <g class="map-hotspot" onclick="selectCity('Mumbai', '380+ Stations', 'Hub 2')">
+              <circle cx="150" cy="300" r="10" fill="rgba(0, 212, 255, 0.3)" class="hotspot-pulse"/>
+              <circle cx="150" cy="300" r="5" fill="#00D4FF"/>
+              <text x="80" y="305" fill="#FFF" font-size="12" font-weight="700">Mumbai</text>
+            </g>
+
+            <g class="map-hotspot" onclick="selectCity('Bengaluru', '410+ Stations', 'Hub 3')">
+              <circle cx="210" cy="400" r="10" fill="rgba(0, 212, 255, 0.3)" class="hotspot-pulse"/>
+              <circle cx="210" cy="400" r="5" fill="#00D4FF"/>
+              <text x="222" y="405" fill="#FFF" font-size="12" font-weight="700">Bengaluru</text>
+            </g>
+
+            <g class="map-hotspot" onclick="selectCity('Hyderabad', '260+ Stations', 'Hub 4')">
+              <circle cx="220" cy="320" r="10" fill="rgba(0, 212, 255, 0.3)" class="hotspot-pulse"/>
+              <circle cx="220" cy="320" r="5" fill="#00D4FF"/>
+              <text x="232" y="325" fill="#FFF" font-size="12" font-weight="700">Hyderabad</text>
+            </g>
+          </svg>

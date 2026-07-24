@@ -1,0 +1,6 @@
+{
+  "name": "IGP by Sparklehood",
+  "description": "India's premier EV charging station installation services for homes, apartments, offices, commercial buildings, hotels, malls, hospitals, and EV fleets.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
