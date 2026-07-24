@@ -1615,14 +1615,29 @@
       border-radius: 14px;
       overflow: hidden;
       margin-bottom: 16px;
-      background: #F1F5F9;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+      background: #F8FAFC;
+      border: 1px solid rgba(0, 82, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s ease, padding 0.3s ease;
     }
     .stage-img-wrap img {
       width: 100%;
       height: 100%;
+      max-width: 100%;
+      max-height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      transition: transform 0.4s ease, object-fit 0.3s ease;
+    }
+    .stage-img-wrap.is-logo-mode {
+      padding: 28px;
+      background: #FFFFFF;
+    }
+    .stage-img-wrap.is-logo-mode img {
+      object-fit: contain;
+      width: auto;
+      height: auto;
     }
     .stage-card:hover .stage-img-wrap img {
       transform: scale(1.05);
@@ -3454,14 +3469,18 @@
         requestAnimationFrame(updateOrbit);
       }
 
-      // HOVER TO SHOW BIGGER IMAGE & DETAILS ON THE RIGHT SIDE STAGE
+      // HOVER TO SHOW BIGGER IMAGE & DETAILS ON THE RIGHT SIDE STAGE (ADAPTABLE IMAGE FIT)
       const allPlanetCards = document.querySelectorAll('.planet-card');
+      const stageImgWrap = document.querySelector('.stage-img-wrap');
+
       allPlanetCards.forEach(function(card) {
         card.addEventListener('mouseenter', function() {
           const img = this.getAttribute('data-img');
           const tag = this.getAttribute('data-tag');
           const title = this.getAttribute('data-title');
           const desc = this.getAttribute('data-desc');
+
+          const isLogo = this.classList.contains('logo-planet') || (img && img.includes('logo/'));
 
           if (img && title && stageCard) {
             stageCard.classList.add('updating');
@@ -3470,6 +3489,15 @@
               if (stageTag) stageTag.textContent = tag;
               if (stageTitle) stageTitle.textContent = title;
               if (stageDesc) stageDesc.textContent = desc;
+
+              if (stageImgWrap) {
+                if (isLogo) {
+                  stageImgWrap.classList.add('is-logo-mode');
+                } else {
+                  stageImgWrap.classList.remove('is-logo-mode');
+                }
+              }
+
               stageCard.classList.remove('updating');
             }, 80);
           }
