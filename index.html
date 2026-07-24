@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IGP by Sparklehood | India's Premier EV Charging Station Installation Services</title>
   <meta name="description" content="Turnkey EV Charging Station Installation across India for Homes, Apartments, Offices, Malls, Hotels, Hospitals, and EV Fleets. Discom &amp; CEA Approved.">
+  <link rel="icon" type="image/svg+xml" href="igp logo.svg">
+  <link rel="icon" type="image/png" href="igp logo.png">
+  <link rel="shortcut icon" type="image/png" href="igp logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
@@ -57,54 +60,40 @@
     }
 
     /* =====================================================================
-       FLOATING LIGHTNING CURSOR WITH TRAILING SMOOTH RING
+       CUSTOM LIGHTNING CIRCLE CURSOR (MATCHES UPLOADED DESIGN EXACTLY)
        ===================================================================== */
     *, body, a, button, input, select, textarea, .btn, .planet-card, .nav-link {
-      cursor: none !important;
+      cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34' fill='none'%3E%3Ccircle cx='17' cy='17' r='15' fill='rgba(245, 248, 255, 0.92)' stroke='%2364748B' stroke-width='1.3'/%3E%3Cpath d='M18.5 7.5L9.5 18H15.5L14.5 26.5L23.5 16H17.5L18.5 7.5Z' fill='%230F172A' stroke='%230F172A' stroke-width='0.5' stroke-linejoin='round'/%3E%3C/svg%3E") 17 17, auto !important;
     }
 
-    .cursor-point {
+    .custom-cursor-follower {
       position: fixed;
       top: -100px;
       left: -100px;
-      width: 22px;
-      height: 22px;
-      pointer-events: none;
-      z-index: 1000000;
-      transform: translate(-50%, -50%);
-      will-change: left, top;
-      transition: transform 0.2s ease;
-    }
-    .cursor-point svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
-    }
-
-    .cursor-ring {
-      position: fixed;
-      top: -100px;
-      left: -100px;
-      width: 44px;
-      height: 44px;
-      border: 1.5px solid rgba(0, 82, 255, 0.45);
-      background: rgba(0, 82, 255, 0.04);
-      border-radius: 50%;
+      width: 34px;
+      height: 34px;
       pointer-events: none;
       z-index: 999999;
       transform: translate(-50%, -50%);
-      transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1), height 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-      will-change: left, top;
-      box-shadow: 0 0 15px rgba(0, 82, 255, 0.12);
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      will-change: transform, left, top;
     }
-
-    .cursor-ring.hovering {
-      width: 62px;
-      height: 62px;
-      border-color: var(--blue);
-      background: rgba(0, 82, 255, 0.10);
-      box-shadow: 0 0 25px rgba(0, 82, 255, 0.3);
+    .custom-cursor-follower svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .custom-cursor-follower.hovering {
+      transform: translate(-50%, -50%) scale(1.25);
+    }
+    .custom-cursor-follower.hovering circle {
+      fill: rgba(0, 82, 255, 0.12);
+      stroke: #0052FF;
+      stroke-width: 1.8;
+    }
+    .custom-cursor-follower.hovering path {
+      fill: #0052FF;
+      stroke: #0052FF;
     }
 
     /* =====================================================================
@@ -300,22 +289,32 @@
       pointer-events: none;
     }
 
+    /* NAV BRAND LOGO IMAGE */
+    .nav-brand-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
     .hero-grid {
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
       align-items: center;
-      position: relative; z-index: 2;
+      position: relative;
+      z-index: 2;
     }
 
     /* Hero Content */
     .hero-content {
-      max-width: 840px;
-      margin: 0 auto;
-      text-align: center;
+      max-width: 100%;
+      margin: 0;
+      text-align: left;
     }
 
     .hero h1 {
-      font-size: clamp(3rem, 6vw, 4.5rem);
+      font-size: clamp(2.8rem, 4.8vw, 4.2rem);
       color: var(--text-dark);
       font-weight: 800;
       line-height: 1.08;
@@ -325,14 +324,22 @@
     .hero h1 .accent { color: var(--blue); }
 
     .hero-subtitle {
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       color: var(--text-muted);
-      max-width: 660px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 0 36px 0;
+      line-height: 1.65;
+      text-align: left;
     }
 
-    .hero-ctas { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
 
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
@@ -376,6 +383,77 @@
       display: block;
     }
     .hero-stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; font-weight: 500; }
+
+    /* RIGHT COLUMN: HERO VIDEO PLAYER SHOWCASE */
+    .hero-video-column {
+      width: 100%;
+      position: relative;
+    }
+    .hero-video-container {
+      position: relative;
+      width: 100%;
+      border-radius: 22px;
+      overflow: hidden;
+      background: #090D16;
+      border: 3px solid rgba(15, 23, 42, 0.9);
+      box-shadow: 0 24px 64px rgba(0, 82, 255, 0.18), 0 8px 24px rgba(15, 23, 42, 0.12);
+      transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .hero-video-container:hover {
+      transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+      box-shadow: 0 32px 80px rgba(0, 82, 255, 0.28);
+    }
+    .hero-ev-video {
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+    .video-sound-toggle {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.25s ease;
+    }
+    .video-sound-toggle:hover {
+      background: var(--blue);
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-subtitle {
+        margin: 0 auto 32px auto;
+        text-align: center;
+      }
+      .hero-ctas {
+        justify-content: center;
+      }
+      .hero-video-container {
+        transform: none;
+      }
+    }
 
     /* Hero Terminal */
     .hero-terminal {
@@ -1746,14 +1824,10 @@
   <nav class="navbar" id="navbar">
     <div class="navbar-inner">
       <a href="#" class="brand-logo">
-        <div class="logo-mark">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-          </svg>
-        </div>
+        <img src="igp logo.svg" alt="IGP Logo" class="nav-brand-img">
         <div class="brand-name-wrap">
           <span class="brand-name">IGP BY SPARKLEHOOD</span>
-          <span class="brand-sub">EV Infrastructure Partner</span>
+          <span class="brand-sub">EV INFRASTRUCTURE PARTNER</span>
         </div>
       </a>
 
@@ -1799,13 +1873,14 @@
     <button class="btn-primary" style="width:100%;justify-content:center;" onclick="openModal()">Book Free Consultation</button>
   </div>
 
-  <!-- HERO SECTION -->
+  <!-- HERO SECTION (MATCHES REFERENCE DESIGN: LEFT CONTENT, RIGHT VIDEO) -->
   <section class="hero" id="home">
     <div class="container">
       <div class="hero-grid">
-        <!-- Content -->
+
+        <!-- LEFT COLUMN: CONTENT -->
         <div class="hero-content">
-          <h1>Powering India's EV<br><span class="accent">Future.</span></h1>
+          <h1>Powering India's<br>EV<br><span class="accent">Future.</span></h1>
           <p class="hero-subtitle">
             Seamless end-to-end EV charging station installation for residential societies, commercial complexes, retail hubs, hotels, and enterprise EV fleets across all 28 states.
           </p>
@@ -1822,7 +1897,7 @@
           </div>
           <div class="hero-stats-strip">
             <div class="hero-stat">
-              <span class="hero-stat-num counter" data-target="1500">0</span>+
+              <span class="hero-stat-num"><span class="counter" data-target="1500">0</span>+</span>
               <p class="hero-stat-label">Stations Commissioned</p>
             </div>
             <div class="hero-stat">
@@ -1830,11 +1905,28 @@
               <p class="hero-stat-label">States &amp; UT Footprint</p>
             </div>
             <div class="hero-stat">
-              <span class="hero-stat-num counter" data-target="99">0</span>%
+              <span class="hero-stat-num"><span class="counter" data-target="99">0</span>%</span>
               <p class="hero-stat-label">Customer Satisfaction</p>
             </div>
           </div>
         </div>
+
+        <!-- RIGHT COLUMN: EV VIDEO SHOWCASE PLAYER -->
+        <div class="hero-video-column">
+          <div class="hero-video-container">
+            <video id="heroEvVideo" autoplay loop muted playsinline class="hero-ev-video">
+              <source src="old_repo_assets/ev.mp4" type="video/mp4">
+              <source src="ev.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <button class="video-sound-toggle" id="soundToggleBtn" onclick="toggleHeroVideoSound()" aria-label="Toggle Sound">
+              <svg id="muteIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -3323,7 +3415,21 @@
     // Scroll to top
     function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-    
+    // Video Sound Toggle Function for Hero EV Video
+    function toggleHeroVideoSound() {
+      const video = document.getElementById('heroEvVideo');
+      const btn = document.getElementById('soundToggleBtn');
+      if (!video || !btn) return;
+
+      if (video.muted) {
+        video.muted = false;
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></svg>';
+      } else {
+        video.muted = true;
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6"/></svg>';
+      }
+    }
+
     // Video Modal Functions
     function openVideoModal() {
       const modal = document.getElementById('videoModal');
@@ -3559,52 +3665,31 @@
     })();
 
     // =====================================================================
-    // FLOATING LIGHTNING CURSOR WITH LERP TRAILING RING
+    // CUSTOM LIGHTNING CIRCLE CURSOR TRAILER SCRIPT
     // =====================================================================
     (function() {
-      const point = document.getElementById('cursorPoint');
-      const ring = document.getElementById('cursorRing');
-      if (!point || !ring) return;
-
-      let mouseX = -100, mouseY = -100;
-      let ringX = -100, ringY = -100;
+      const cursor = document.getElementById('customCursorFollower');
+      if (!cursor) return;
 
       document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        // Instant update for central sharp lightning point
-        point.style.left = mouseX + 'px';
-        point.style.top = mouseY + 'px';
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
       });
 
-      // Smooth 60FPS Lerp update for outer floating ring
-      function renderCursor() {
-        ringX += (mouseX - ringX) * 0.18;
-        ringY += (mouseY - ringY) * 0.18;
-
-        ring.style.left = ringX.toFixed(2) + 'px';
-        ring.style.top = ringY.toFixed(2) + 'px';
-
-        requestAnimationFrame(renderCursor);
-      }
-      requestAnimationFrame(renderCursor);
-
-      // Expand floating ring on interactive elements hover
       const interactiveEls = document.querySelectorAll('a, button, .planet-card, .btn, input, select, .nav-link');
       interactiveEls.forEach(function(el) {
-        el.addEventListener('mouseenter', function() { ring.classList.add('hovering'); });
-        el.addEventListener('mouseleave', function() { ring.classList.remove('hovering'); });
+        el.addEventListener('mouseenter', function() { cursor.classList.add('hovering'); });
+        el.addEventListener('mouseleave', function() { cursor.classList.remove('hovering'); });
       });
     })();
   </script>
 
-  <!-- FLOATING LIGHTNING CURSOR DOM ELEMENTS -->
-  <div class="cursor-point" id="cursorPoint">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="#0F172A" stroke="#0052FF" stroke-width="1.2" stroke-linejoin="round"/>
+  <!-- CUSTOM LIGHTNING CIRCLE CURSOR DOM ELEMENT -->
+  <div class="custom-cursor-follower" id="customCursorFollower">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+      <circle cx="17" cy="17" r="15" fill="rgba(245, 248, 255, 0.92)" stroke="#64748B" stroke-width="1.3"/>
+      <path d="M18.5 7.5L9.5 18H15.5L14.5 26.5L23.5 16H17.5L18.5 7.5Z" fill="#0F172A" stroke="#0F172A" stroke-width="0.5" stroke-linejoin="round"/>
     </svg>
   </div>
-  <div class="cursor-ring" id="cursorRing"></div>
 </body>
 </html>
